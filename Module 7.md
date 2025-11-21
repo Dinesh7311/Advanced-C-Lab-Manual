@@ -15,13 +15,31 @@ Else
 6.	Return 0
  
 Program:
-
-//type your code here
-
+```
+#include <stdio.h>
+struct eligible {
+    int age;
+    char n[50];
+};
+int main() {
+    struct eligible e;
+    scanf("%s", e.n);
+    scanf("%d", &e.age);
+    if (e.age <= 6) {
+        printf("\nVaccine Eligibility: No\n");
+    } else {
+        printf("\nVaccine Eligibility: Yes\n");
+    }
+    printf("Name: %s\n", e.n);
+    printf("Age: %d\n", e.age);
+    return 0;
+}
+```
 
 Output:
 
-//paste your output here
+<img width="521" height="325" alt="image" src="https://github.com/user-attachments/assets/f8d076db-060a-4d53-98c6-c9212dbae3e2" />
+
 
 
 Result:
@@ -43,8 +61,28 @@ Algorithm:
 7.	Return 0
  
 Program:
-
-//type your code here
+```
+#include <stdio.h>
+struct numbers
+{
+    int a, b;
+};
+struct numbers add(struct numbers x)
+{
+    struct numbers r;
+    r.a = x.a + x.b;
+    return r;
+}
+int main()
+{
+    struct numbers n, result;
+    scanf("%d", &n.a);
+    scanf("%d", &n.b);
+    result = add(n);
+    printf("Result: %d\n", result.a);
+    return 0;
+}
+```
 
 
 
@@ -52,7 +90,8 @@ Program:
 Output:
 
 
-//paste your output here
+<img width="519" height="281" alt="image" src="https://github.com/user-attachments/assets/2bc3c150-9761-4ce9-86fb-d92a5d6210ec" />
+
 
 
 
@@ -85,23 +124,33 @@ Use scanf to input the file name into the name array.
 5.	Return 0 to indicate successful program execution.
  
 Program:
+```
+#include <stdio.h>
+#include <stdlib.h>
 
-//type your code here
-
+int main() {
+    FILE *p;
+    char name[100];
+    printf("Enter file name: ");
+    scanf("%s", name);
+    printf("File %s created successfully\n", name);
+    p = fopen(name, "w");
+    if (p == NULL) {
+        printf("Error opening file\n");
+        exit(1);
+    }    
+    printf("File opened successfully\n");
+    fclose(p);
+    printf("File closed\n");
+    return 0;
+}
+```
 
 
 
 Output:
 
-
-//paste your output here
-
-
-
-
-
-
-
+<img width="580" height="246" alt="image" src="https://github.com/user-attachments/assets/b4ca01d9-528f-4886-86e1-b59166f229bc" />
 
 
 
@@ -133,15 +182,48 @@ Use scanf to input the file name into the name array and the number of strings i
  
 Program:
 
-//type your code here
-
+#include <stdio.h>
+#include <stdlib.h>
+```
+int main() {
+    FILE *p;
+    char name[100];
+    char text[200];
+    int num;
+    
+    printf("Enter file name: ");
+    scanf("%s", name);
+    printf("Enter number of strings: ");
+    scanf("%d", &num);
+    
+    p = fopen(name, "w");
+    if (p == NULL) {
+        printf("Error opening file\n");
+        exit(1);
+    }
+    
+    printf("File opened successfully\n");
+    
+    getchar();
+    for (int i = 0; i < num; i++) {
+        printf("Enter string %d: ", i + 1);
+        fgets(text, sizeof(text), stdin);
+        fputs(text, p);
+    }
+    
+    fclose(p);
+    printf("Data added successfully\n");
+    
+    return 0;
+}
+```
 
 
 
 Output:
 
 
-//paste your output here
+<img width="485" height="325" alt="image" src="https://github.com/user-attachments/assets/b143d633-4f78-4385-b539-9baec5eb3624" />
 
 
 
@@ -187,19 +269,52 @@ Algorithm:
 
 Program:
 
-//type your code here
+```
+#include <stdio.h>
+#include <stdlib.h>
+
+struct subject {
+    char name[50];
+    int marks;
+};
+
+int main() {
+    int n;
+    struct subject *s;
+    
+    printf("Enter number of subjects: ");
+    scanf("%d", &n);
+    
+    s = (struct subject *)malloc(n * sizeof(struct subject));
+    if (s == NULL) {
+        printf("Memory allocation failed\n");
+        exit(1);
+    }
+    
+    for (int i = 0; i < n; i++) {
+        printf("Enter subject %d name: ", i + 1);
+        scanf("%s", s[i].name);
+        printf("Enter marks: ");
+        scanf("%d", &s[i].marks);
+    }
+    
+    printf("\nSubject Details:\n");
+    for (int i = 0; i < n; i++) {
+        printf("Subject: %s, Marks: %d\n", s[i].name, s[i].marks);
+    }
+    
+    free(s);
+    
+    return 0;
+}
+```
 
 
 
 
 Output:
 
-
-//paste your output here
-
-
-
-
+<img width="465" height="366" alt="image" src="https://github.com/user-attachments/assets/d428666d-eaa0-4539-8db2-2e4cee994cc4" />
 
 
 Result:
