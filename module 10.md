@@ -74,6 +74,8 @@ int main() {
 }
 ```
 
+
+
 Output:
 
 <img width="478" height="294" alt="image" src="https://github.com/user-attachments/assets/5483b003-bad2-47f9-98c5-e4930093cede" />
